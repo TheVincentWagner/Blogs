@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - my-pages
+      - main
     paths:
       - _config.yml
 
@@ -39,7 +39,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           fetch-depth: 0 # Let's get all the branches
-          ref: my-pages
+          ref: main
 
       # Update README to close <details id=2> and open <details id=3>
       # and set STEP to '3'
@@ -49,4 +49,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           from_step: 2
           to_step: 3
-          branch_name: my-pages
+          branch_name: main
