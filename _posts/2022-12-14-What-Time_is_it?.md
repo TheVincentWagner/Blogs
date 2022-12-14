@@ -6,7 +6,7 @@ date: 2022-11-12
 ### Disclaimer: 
 All results presented herein are directly taken from the paper "What time is it? Deep learning approaches for circadian rhythms" by Agostinelli et al. published in Bioinformatics, 32, 2016.
 	
-## Motivation:
+## Motivation
 Circadian rhythms (CRs) play a crucial role in our everyday life - literally! The word circadian is directly derived from "approximately daily" and CRs therefore are a class of biochemical oscillaors with a period of approximately 24 hours. CRs can be found in animals, plants and funghi, all three kingdoms of life on earth.
 Fundamentally, CRs (and many other periodic changes) are encoded by oscillating concentrations of specific molecular species like for example proteins. 
 Fortunately, modern measurement technologies are capable of extractring ever more detailed data from biochemical systems, thereby reveiling rhytmic behaviour andother complex patterns. 
@@ -20,4 +20,11 @@ As one nevertheless wants to leverage the data as well as possible, the paper ai
 * Can we extrapolate periodic behaviour reliably from single time point measurements or scarse data in general?
 
 The paper produced evidence, that both questions can adequately be answered using deep learning techniques, or to be more precise, Deep Neural Networks (DNNs).
+
+## Data
+
+There are unfortunately not enough real-world biochemical data sets that have been labeled as (a)periodic. The authors therefore supplement this real-world data sets with synthetic data sets, for which attributes like periodicity and potentially the period and amplidtude are known by construction. 
+Synthetic data are specifically obtained using either Gaussian processes or algebraic formulas in combination with added noise.  
+Together, all data sets make up BioCycle, a vast and comprehensive data base that is now only used but also curated by the authors. 
+<img src="[drawing.jpg](https://user-images.githubusercontent.com/59834752/207565278-f4744601-f887-4260-bbec-4be249ceadb9.jpg)" alt="drawing" width="200"/>
 
