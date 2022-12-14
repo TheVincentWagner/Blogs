@@ -38,5 +38,9 @@ BioCycle is the data set used to answer the first question. Similarly, BioClock 
 The authors evaluated the performance of several learning algorithms to tackle the two problems stated above. However, DNNs clearly won against all competitors. 
 The resulting learning systems are named BIO_CYCLE and BIO_CLOCK which directly translates the data set names. 
 
-<img src="https://user-images.githubusercontent.com/59834752/207595119-c95293ab-62b3-456d-b252-9d832f0da82b.jpg" alt="network architecture" width="360"/>
+<img src="https://user-images.githubusercontent.com/59834752/207595119-c95293ab-62b3-456d-b252-9d832f0da82b.jpg" alt="network architecture" width="480"/>
+
 *Figure 2. Architecture of both learning systems presented in this work.*
+
+The main difference between the networks is the respective in- and output layer. While BIO_CYCLE uses gene information of one gene and several time points to output a single logistic periodicity response, BIO_CLOCK decomposes gene information of several genes at a single time point into a sine and cosine of the oscillations phase angle.
+Both systems train neural networks with 3 fully-connected hidden layers consisting of 100 nodes each. The training consisted of 50000 iterations of momentum mini-batch gradient descent optimizations. The batch-size, or in other word, the number of considered data sets per iteration was set to 100. Furthermore, the learning rate of the network decayed wich a growing number of already performed training iterations. 
