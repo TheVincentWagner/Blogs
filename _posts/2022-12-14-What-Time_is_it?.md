@@ -26,5 +26,8 @@ The paper produced evidence, that both questions can adequately be answered usin
 There are unfortunately not enough real-world biochemical data sets that have been labeled as (a)periodic. The authors therefore supplement this real-world data sets with synthetic data sets, for which attributes like periodicity and potentially the period and amplidtude are known by construction. 
 Synthetic data are specifically obtained using either Gaussian processes or algebraic formulas in combination with added noise.  
 Together, all data sets make up BioCycle, a vast and comprehensive data base that is now only used but also curated by the authors. 
-<img src="https://user-images.githubusercontent.com/59834752/207565278-f4744601-f887-4260-bbec-4be249ceadb9.jpg" alt="drawing" width="200"/>
+
+<img src="https://user-images.githubusercontent.com/59834752/207565278-f4744601-f887-4260-bbec-4be249ceadb9.jpg" alt="formula-based data" width="250"/>
+<img src="https://user-images.githubusercontent.com/59834752/207566453-037f5fea-915a-4605-99bf-437c27aa21f0.jpg" alt="Gaussian Process data" width="250"/>
+<img src="https://user-images.githubusercontent.com/59834752/207566609-a25962bf-37a8-439c-a8f5-98818b3e0462.jpg" alt="real-world data" width="250"/>
 
