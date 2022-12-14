@@ -28,11 +28,15 @@ There are unfortunately not enough real-world trascriptome data sets that have b
 Synthetic data are specifically obtained using either Gaussian processes or algebraic formulas in combination with added noise.  
 Together, all data sets make up BioCycle, a vast and comprehensive data base that is now only used but also curated by the authors. 
 
-<img src="https://user-images.githubusercontent.com/59834752/207565278-f4744601-f887-4260-bbec-4be249ceadb9.jpg" alt="formula-based data" width="240"/><img src="https://user-images.githubusercontent.com/59834752/207566453-037f5fea-915a-4605-99bf-437c27aa21f0.jpg" alt="Gaussian Process data" width="240"/><img src="https://user-images.githubusercontent.com/59834752/207566609-a25962bf-37a8-439c-a8f5-98818b3e0462.jpg" alt="real-world data" width="240"/>
+<img src="https://user-images.githubusercontent.com/59834752/207565278-f4744601-f887-4260-bbec-4be249ceadb9.jpg" alt="formula-based data" width="245"/><img src="https://user-images.githubusercontent.com/59834752/207566453-037f5fea-915a-4605-99bf-437c27aa21f0.jpg" alt="Gaussian Process data" width="245"/><img src="https://user-images.githubusercontent.com/59834752/207566609-a25962bf-37a8-439c-a8f5-98818b3e0462.jpg" alt="real-world data" width="245"/>
 *Figure 1. Examples for each of the three subtypes of data.* Generally, periodic data are plotted in green, while aperiodic time series are depicted in red. In the left 4 columns, you see data originating from mathematic formulas. The central 4 columns depict sythetic data contructed by Gaussian Processes and the right 4 columns show real-world data sets.
 
 BioCycle is the data set used to answer the first question. Similarly, BioClock is another data set created and curated to address the second one. BioClock also contains transcriptome information, but focusses on genes that are part of the core clock, the main time-tracking mechanism of most organisms. In contrast to approximately 20000 gene expressions tracked in BioCycle, BioClock therefore only has information for less than 100 genes.
 
 ## Methods
 
-The authors evaluated the performance of several learning algorithms to tackle the two problems stated above.
+The authors evaluated the performance of several learning algorithms to tackle the two problems stated above. However, DNNs clearly won against all competitors. 
+The resulting learning systems are named BIO_CYCLE and BIO_CLOCK which directly translates the data set names. 
+
+<img src="https://user-images.githubusercontent.com/59834752/207595119-c95293ab-62b3-456d-b252-9d832f0da82b.jpg" alt="network architecture" width="360"/>
+*Figure 2. Architecture of both learning systems presented in this work.*
