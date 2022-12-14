@@ -28,6 +28,6 @@ Synthetic data are specifically obtained using either Gaussian processes or alge
 Together, all data sets make up BioCycle, a vast and comprehensive data base that is now only used but also curated by the authors. 
 
 <img src="https://user-images.githubusercontent.com/59834752/207565278-f4744601-f887-4260-bbec-4be249ceadb9.jpg" alt="formula-based data" width="33%"/> <img src="https://user-images.githubusercontent.com/59834752/207566453-037f5fea-915a-4605-99bf-437c27aa21f0.jpg" alt="Gaussian Process data" width="33%"/> <img src="https://user-images.githubusercontent.com/59834752/207566609-a25962bf-37a8-439c-a8f5-98818b3e0462.jpg" alt="real-world data" width="33%"/>
-Examples for each of the three subtypes of data are depicted above. Generally, periodic data are plotted in green, while aperiodic time series are depicted in ted. On the left, you see data originating from mathematic formulas. In the centre, sythetic data contructed by Gaussian Processes can be seen and on the right hand side, the real-world data sets are presented.
+*Figure 1. Examples for each of the three subtypes of data.* Generally, periodic data are plotted in green, while aperiodic time series are depicted in ted. On the left, you see data originating from mathematic formulas. In the centre, sythetic data contructed by Gaussian Processes can be seen and on the right hand side, the real-world data sets are presented.
 
 Here is the next paragraph.
