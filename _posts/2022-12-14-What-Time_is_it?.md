@@ -59,4 +59,5 @@ In essence, ROC curves compare the true positive rate to the false positive rate
 <img src="https://user-images.githubusercontent.com/59834752/207903280-7218e305-117d-4387-af0d-af7630cfd79b.jpg" alt="ROC curves" width="245"/><img src="https://user-images.githubusercontent.com/59834752/207903419-5cf1eb5c-2e31-4459-92d0-fe79563e8175.jpg" alt="AUC curves" width="245"/><img src="https://user-images.githubusercontent.com/59834752/207903827-269bd96a-b481-42b1-820f-3de7642d5cd6.png" alt="AUC table" width="245"/>
 *Figure 3. Periodicity classification performance of different methods on synthetic data.* The left subfigure shows ROC curves for all compared methods and itself is divided into four subsets for four different data sets. The central subfigure shows the AUC of the ROC curves depicted on the left. The right table contains even more information, namely all AUC scores for synthetic data.
 
+From the results depicted in Figure 3 it becomes clear that there is harly any scenario, where DNNs as periodicity classifiers are outperformed. 
 
