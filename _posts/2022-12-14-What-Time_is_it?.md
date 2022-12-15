@@ -23,7 +23,7 @@ The paper produced evidence, that both questions can adequately be answered usin
 
 ## Data
 
-The data generally report or mimic transcriptome data. More specifically, the data reports which gene is read how often. This directly correlates with the production rate of the proteins encoded in some of the genes. It is worth noting that the number of genes under consideration is very large, potentially reaching 20000 and beyond.
+The data generally report or mimic transcriptome data. More specifically, the data reports which gene is read how often. This directly correlates with the production rate of the proteins encoded in some of the genes. It is worth noting that the number of genes under consideration is very large, potentially reaching 20 000 and beyond.
 There are unfortunately not enough real-world trascriptome data sets that have been labeled as (a)periodic. The authors therefore supplement this real-world data sets with synthetic data sets, for which attributes like periodicity and potentially the period and amplidtude are known by construction. 
 Synthetic data are specifically obtained using either Gaussian processes or algebraic formulas in combination with added noise.  
 Together, all data sets make up BioCycle, a vast and comprehensive data base that is now only used but also curated by the authors. 
@@ -31,16 +31,30 @@ Together, all data sets make up BioCycle, a vast and comprehensive data base tha
 <img src="https://user-images.githubusercontent.com/59834752/207565278-f4744601-f887-4260-bbec-4be249ceadb9.jpg" alt="formula-based data" width="245"/><img src="https://user-images.githubusercontent.com/59834752/207566453-037f5fea-915a-4605-99bf-437c27aa21f0.jpg" alt="Gaussian Process data" width="245"/><img src="https://user-images.githubusercontent.com/59834752/207566609-a25962bf-37a8-439c-a8f5-98818b3e0462.jpg" alt="real-world data" width="245"/>
 *Figure 1. Examples for each of the three subtypes of data.* Generally, periodic data are plotted in green, while aperiodic time series are depicted in red. In the left 4 columns, you see data originating from mathematic formulas. The central 4 columns depict sythetic data contructed by Gaussian Processes and the right 4 columns show real-world data sets.
 
-BioCycle is the data set used to answer the first question. Similarly, BioClock is another data set created and curated to address the second one. BioClock also contains transcriptome information, but focusses on genes that are part of the core clock, the main time-tracking mechanism of most organisms. In contrast to approximately 20000 gene expressions tracked in BioCycle, BioClock therefore only has information for less than 100 genes.
+BioCycle is the data set used to answer the first question. Similarly, BioClock is another data set created and curated to address the second one. BioClock also contains transcriptome information, but focusses on genes that are part of the core clock, the main time-tracking mechanism of most organisms. In contrast to approximately 20 000 gene expressions tracked in BioCycle, BioClock therefore only has information for less than 100 genes.
 
 ## Methods
 
-The authors evaluated the performance of several learning algorithms to tackle the two problems stated above. However, DNNs clearly won against all competitors. 
+The authors evaluated the performance of several learning algorithms to tackle the two problems stated above. However, DNNs clearly won against all respective competitors. 
 The resulting learning systems are named BIO_CYCLE and BIO_CLOCK which directly translates the data set names. 
 
 <img src="https://user-images.githubusercontent.com/59834752/207595119-c95293ab-62b3-456d-b252-9d832f0da82b.jpg" alt="network architecture" width="480"/>
 
 *Figure 2. Architecture of both learning systems presented in this work.*
 
-The main difference between the networks is the respective in- and output layer. While BIO_CYCLE uses gene information of one gene and several time points to output a single logistic periodicity response, BIO_CLOCK decomposes gene information of several genes at a single time point into a sine and cosine of the oscillations phase angle.
-Both systems train neural networks with 3 fully-connected hidden layers consisting of 100 nodes each. The training consisted of 50000 iterations of momentum mini-batch gradient descent optimizations. The batch-size, or in other word, the number of considered data sets per iteration was set to 100. Furthermore, the learning rate of the network decayed wich a growing number of already performed training iterations. 
+We will first describe the learning system BIO_CYCLE that aims to solve the first research question. It uses gene information of one gene and several time points to output either a single logistic periodicity response or an estimation of the signal's period. The authors point out and describe, that and how a very similar DNN can also be used to estimate the phase, lag and amplidtude of a given signal.
+The systems trains deep neural networks with 3 fully-connected hidden layers consisting of 100 nodes each. The training consisted of 50 000 iterations of momentum mini-batch gradient descent optimizations. The batch-size, or in other word, the number of considered data sets per iteration was set to 100. Furthermore, the learning rate of the network exponentially decayed wich a growing number of already performed training iterations. 
+
+The system BIO_CLOCK, in contrast to BIO_CYCLE, is designed to answer research question 2. One big difference between the two systems is the choice of respective in- and output. BIO_CLOCK decomposes gene information of several genes at a single time point into the coupled sine and cosine of the oscillations phase angle.
+The authors tried a variety of different network architectures ranging from 2 to 9 network layers with 100 to 600 nodes per layer. Again, an initial learning rate of 0.1 decays exponentially during the course of the training. Reliable results are obtained through the use of 5-fold cross validation over all BioClock data sets.
+
+Is is worth mentioning that all used code is accessible for reuse and intended also for a purely biologically trained audience.
+
+## Results
+The DNNs trained in this work are compared to 4 existing methods (ARSER (ARS), Lomb-Scargle (LS), JTK_Cycle (JTK) and MetaCycle (MC)). 
+We begin with results regarding research question 1: Is a chemical species oscillating or not?
+As this question is a special case of binary classification, receiver operating characteristic (ROC) curves are a good measure for the quality of different solutions. 
+In essence, ROC curves compare the true positive rate to the false positive rate. A completely random classifyer would therefore be equivlent to a straight diagonal line from (0,0) to (1,1). The better the classifier is, the more this curve is moved to the top left of the plot. Therefore, the area under the curve (AUC) should be large for a good classifier. The first results we present here use exactly these two quality measures to compare the DNN approach to the four named alternatives. 
+
+<img src="https://user-images.githubusercontent.com/59834752/207903280-7218e305-117d-4387-af0d-af7630cfd79b.jpg" alt="ROC curves" width="245"/><img src="https://user-images.githubusercontent.com/59834752/207903827-269bd96a-b481-42b1-820f-3de7642d5cd6.png" alt="Gaussian Process data" width="245"/><img src="https://user-images.githubusercontent.com/59834752/207903419-5cf1eb5c-2e31-4459-92d0-fe79563e8175.jpg" alt="real-world data" width="245"/>
+*Figure 3. ToDo.* Todo
