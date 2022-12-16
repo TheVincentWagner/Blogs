@@ -62,13 +62,19 @@ In essence, ROC curves compare the true positive rate to the false positive rate
 From the results depicted in Figure 3 it becomes clear that there is hardly any scenario, where DNNs as periodicity classifiers are outperformed. 
 Besides experiments for synthetic data presented so far, the authors also evaluated their method on real-world data. Table 4 shows that DNNs perform very well also in this regime especially for the first two data sets. However, they are outperformed for the third depicted data set. 
 
-<img src="https://user-images.githubusercontent.com/59834752/208039027-d2a483a1-c934-4a74-924d-e6cfdf05ea19.png" alt="real-world periodicity" width="245"/>
+<img src="https://user-images.githubusercontent.com/59834752/208039027-d2a483a1-c934-4a74-924d-e6cfdf05ea19.png" alt="real-world periodicity" width="480"/>
+
 *Table 4. DNNs as binary periodicity classifiers perform best for 2 out of 3 data sets.* 
 
 To obtain results for research question 2, the BioClock data set is divided into 70% training and 30% testing data. The BIO_CLOCK system is able to accurately predict the missing time of experiment with a mean absolute error of 75 minutes. In addition to this overall results obtained from all data, the authors divide the BioClock data set into several subsets corresponding to data from different tissues wild type mouse cells. Two of the four considered data subsets are created by using only brain and liver data, respectively. In addition, Set1 contains data from the adrenal gland, fat, gut, kidney, lung and muscle. Set 2 similarly agglomerates data from the aorta, colon, fibroblast, heart, macrophages and pituitary gland. Ideally, the measurement time prediction would become more reliable through this restriction to four homogeneous data sets. Similar to the first result regarding research question 1, the data are split into 70% training and 30% testing data.
 
 Table 5 presents the mean absolute error of the measurement time prediction. Unsurprisingly, a classifier trained on one subset of data performs significatly worse when applied to data from different origins. However, a classifier trained on all data is always nearly as good or even better than a specialized DNN.
 
+<img src="https://user-images.githubusercontent.com/59834752/208045508-b8d4f8dd-1c22-4eef-bd1a-1c510a3d9d78.png" alt="measurement time estimation" width="480"/>
 
-<img src="https://user-images.githubusercontent.com/59834752/208045508-b8d4f8dd-1c22-4eef-bd1a-1c510a3d9d78.png" alt="measurement time estimation" width="245"/>
 *Table 5. DNNs perform well as estimators for measurement time.* 
+
+## Conclusion
+
+DNNs are able to answer both posed reasearch questions adequately: For time-series data like BioCycle, they can reliably predict periodicity as a boolean decision variable or quantitatively in terms of the period, lag and amplitude (results not shown here). For data without time measurement, the missing time can be reconstruced by the DNN system BIO_CLOCK. Unsurprisingly, both systems gain accuracy through the use of more data. 
+
