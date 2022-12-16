@@ -31,7 +31,7 @@ Together, all data sets make up BioCycle, a vast and comprehensive data base tha
 <img src="https://user-images.githubusercontent.com/59834752/207565278-f4744601-f887-4260-bbec-4be249ceadb9.jpg" alt="formula-based data" width="245"/><img src="https://user-images.githubusercontent.com/59834752/207566453-037f5fea-915a-4605-99bf-437c27aa21f0.jpg" alt="Gaussian Process data" width="245"/><img src="https://user-images.githubusercontent.com/59834752/207566609-a25962bf-37a8-439c-a8f5-98818b3e0462.jpg" alt="real-world data" width="245"/>
 *Figure 1. Examples for each of the three subtypes of data.* Generally, periodic data are plotted in green, while aperiodic time series are depicted in red. In the left 4 columns, you see data originating from mathematic formulas. The central 4 columns depict sythetic data contructed by Gaussian Processes and the right 4 columns show real-world data sets.
 
-BioCycle is the data set used to answer the first question. Similarly, BioClock is another data set created and curated to address the second one. BioClock also contains transcriptome information, but focusses on genes that are part of the core clock, the main time-tracking mechanism of most organisms. In contrast to approximately 20 000 gene expressions tracked in BioCycle, BioClock therefore only has information for less than 100 genes.
+BioCycle is the data set used to answer the first question. Similarly, BioClock is another data set created and curated to address the second one. BioClock also contains transcriptome information, but focusses on genes that are part of the core clock, the main time-tracking mechanism of most organisms. In contrast to approximately 20 000 gene expressions tracked in BioCycle, BioClock therefore only includes information for 16 genes.
 
 ## Methods
 
@@ -60,7 +60,15 @@ In essence, ROC curves compare the true positive rate to the false positive rate
 *Figure/Table 3. Periodicity classification performance of different methods on synthetic data.* The left subfigure shows ROC curves for all compared methods and itself is divided into four subsets for four different data sets. The central subfigure shows the AUC of the ROC curves depicted on the left. The right table contains even more information, namely all AUC scores for synthetic data.
 
 From the results depicted in Figure 3 it becomes clear that there is hardly any scenario, where DNNs as periodicity classifiers are outperformed. 
-Besides experiments for synthetic data presented so far, the authors also evaluated their method on real-world data. Table 
+Besides experiments for synthetic data presented so far, the authors also evaluated their method on real-world data. Table 4 shows that DNNs perform very well also in this regime especially for the first two data sets. However, they are outperformed for the third depicted data set. 
 
-<img src="https://user-images.githubusercontent.com/59834752/208039027-d2a483a1-c934-4a74-924d-e6cfdf05ea19.png" alt="AUC table" width="245"/>
-*Table 4. TODO.* TODO.
+<img src="https://user-images.githubusercontent.com/59834752/208039027-d2a483a1-c934-4a74-924d-e6cfdf05ea19.png" alt="real-world periodicity" width="245"/>
+*Table 4. DNNs as binary periodicity classifiers perform best for 2 out of 3 data sets.* 
+
+To obtain results for research question 2, the BioClock data set is divided into 70% training and 30% testing data. The BIO_CLOCK system is able to accurately predict the missing time of experiment with a mean absolute error of 75 minutes. In addition to this overall results obtained from all data, the authors divide the BioClock data set into several subsets corresponding to data from different tissues wild type mouse cells. Two of the four considered data subsets are created by using only brain and liver data, respectively. In addition, Set1 contains data from the adrenal gland, fat, gut, kidney, lung and muscle. Set 2 similarly agglomerates data from the aorta, colon, fibroblast, heart, macrophages and pituitary gland. Ideally, the measurement time prediction would become more reliable through this restriction to four homogeneous data sets. Similar to the first result regarding research question 1, the data are split into 70% training and 30% testing data.
+
+Table 5 presents the mean absolute error of the measurement time prediction. Unsurprisingly, a classifier trained on one subset of data performs significatly worse when applied to data from different origins. However, a classifier trained on all data is always nearly as good or even better than a specialized DNN.
+
+
+<img src="https://user-images.githubusercontent.com/59834752/208045508-b8d4f8dd-1c22-4eef-bd1a-1c510a3d9d78.png" alt="measurement time estimation" width="245"/>
+*Table 5. DNNs perform well as estimators for measurement time.* 
